@@ -6,10 +6,18 @@
     <title>Eldar Valentini - Software Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            cursor: default;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
+        <div class="logo">EV</div>
         <ul class="nav-list">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -17,48 +25,92 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="https://picsum.photos/150" alt="Eldar Valentini" class="profile-img">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="profile-container">
+                <img src="https://picsum.photos/150" alt="Eldar Valentini" class="profile-img">
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
             <h1>Eldar Valentini</h1>
             <h2>Full Stack Web Developer</h2>
-            <a href="#contact" class="btn">Get in Touch</a>
+            <p class="typing-text">I create elegant solutions to complex problems</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn primary-btn">Get in Touch</a>
+                <a href="#projects" class="btn secondary-btn">View Work</a>
+            </div>
         </div>
     </section>
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p>I am a software developer specializing in Dart and Node.js programming. I build mobile applications using Flutter and create robust backend services with Nest.js. My passion lies in creating efficient, user-friendly applications that solve real-world problems.</p>
-            <p>Coming from a background in pizza making and customer service, I bring strong work ethic, attention to detail, and excellent communication skills to my development work. I combine my technical expertise with practical problem-solving abilities to deliver quality software solutions.</p>
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-text">
+                    <p>I am a software developer specializing in Dart and Node.js programming. I build mobile applications using Flutter and create robust backend services with Nest.js. My passion lies in creating efficient, user-friendly applications that solve real-world problems.</p>
+                    <p>Coming from a background in pizza making and customer service, I bring strong work ethic, attention to detail, and excellent communication skills to my development work. I combine my technical expertise with practical problem-solving abilities to deliver quality software solutions.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>2+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title" data-aos="fade-up">Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-mobile-alt"></i>
                     <h3>Mobile Development</h3>
                     <p>Dart, Flutter, Mobile-First Design</p>
+                    <div class="skill-level">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-server"></i>
                     <h3>Backend Development</h3>
                     <p>Node.js, Nest.js, RESTful APIs</p>
+                    <div class="skill-level">
+                        <div class="progress" style="width: 85%"></div>
+                    </div>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
                     <i class="fas fa-code"></i>
                     <h3>Frontend Development</h3>
                     <p>HTML5, CSS3, JavaScript</p>
+                    <div class="skill-level">
+                        <div class="progress" style="width: 80%"></div>
+                    </div>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
                     <i class="fas fa-tools"></i>
                     <h3>Tools & Methods</h3>
                     <p>Git, VS Code, Agile</p>
+                    <div class="skill-level">
+                        <div class="progress" style="width: 88%"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,21 +118,47 @@
 
     <section id="projects">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title" data-aos="fade-up">Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/200" alt="Interactive Card Design" class="project-img">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-container">
+                        <img src="https://picsum.photos/400/200" alt="Interactive Card Design" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/yourusername/project1" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="project1.html"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <h3>Interactive Card Design</h3>
                         <p>A showcase of modern CSS techniques including animations, gradients, and responsive design. Built with pure HTML and CSS.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
                         <a href="project1.html" class="btn">View Project</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <img src="https://picsum.photos/400/201" alt="Flutter App" class="project-img">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img-container">
+                        <img src="https://picsum.photos/400/201" alt="Flutter App" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/yourusername/project2" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <h3>Mobile App with Flutter</h3>
                         <p>A cross-platform mobile application built using Flutter and Dart, demonstrating clean architecture and beautiful UI.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Dart</span>
+                            <span class="tag">Firebase</span>
+                        </div>
                         <a href="#" class="btn">Coming Soon</a>
                     </div>
                 </div>
@@ -90,46 +168,64 @@
 
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
+            <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
             <div class="contact-options">
-                <div class="contact-option">
-                    <h3>Quick Email</h3>
-                    <p>Send me an email directly:</p>
-                    <a href="mailto:eldar.valentini@gmail.com" class="btn">Open Email Client</a>
+                <div class="contact-option" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Quick Email</h3>
+                        <p>Send me an email directly:</p>
+                        <a href="mailto:eldar.valentini@gmail.com" class="btn">Open Email Client</a>
+                    </div>
                 </div>
-                <div class="contact-option">
-                    <h3>Contact Form</h3>
-                    <form action="https://formsubmit.co/eldar.valentini@gmail.com" method="POST" class="contact-form">
-                        <!-- Honeypot -->
-                        <input type="text" name="_honey" style="display:none">
-                        
-                        <!-- Disable Captcha -->
-                        <input type="hidden" name="_captcha" value="false">
-                        
-                        <!-- Success Page -->
-                        <input type="hidden" name="_next" value="https://luzbeko.github.io/portfolio/">
-                        
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                <div class="contact-option" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card">
+                        <h3>Contact Form</h3>
+                        <form action="https://formsubmit.co/eldar.valentini@gmail.com" method="POST" class="contact-form">
+                            <input type="text" name="_honey" style="display:none">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://luzbeko.github.io/portfolio/">
+                            
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn submit-btn">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Eldar Valentini. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Eldar Valentini. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 </body>
 </html>
