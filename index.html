@@ -13,9 +13,269 @@
             scroll-behavior: smooth;
             cursor: default;
         }
+
+        /* Typing Animation */
+        .typing-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid var(--primary);
+            animation: typing 3.5s steps(40, end),
+                       blink-caret .75s step-end infinite;
+            margin: 0 auto;
+            max-width: fit-content;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary) }
+        }
+
+        /* Skills Section Animation */
+        .skills-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(9, 132, 227, 0.1) 45%,
+                rgba(0, 206, 201, 0.1) 50%,
+                transparent 55%
+            );
+            animation: shine 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shine {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Project Card Animation */
+        .project-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.2) 45%,
+                rgba(255, 255, 255, 0.4) 50%,
+                transparent 55%
+            );
+            transform: rotate(45deg);
+            animation: shimmer 4s infinite;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes shimmer {
+            from {
+                transform: rotate(45deg) translateX(-100%);
+            }
+            to {
+                transform: rotate(45deg) translateX(100%);
+            }
+        }
+
+        /* Social Links Animation */
+        .social-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-link:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Theme Toggle Animation */
+        .theme-toggle {
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(9, 132, 227, 0.1);
+            transform: rotate(15deg);
+        }
+
+        .theme-toggle:hover i {
+            color: #f1c40f;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+        }
+
+        /* Ripple Effect */
+        .ripple-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: rippleEffect 1.5s ease-out;
+            background: radial-gradient(
+                circle,
+                rgba(9, 132, 227, 0.2) 0%,
+                rgba(0, 206, 201, 0.2) 50%,
+                rgba(255, 255, 255, 0) 70%
+            );
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Particles */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: 98;
+            animation: particleFly 1s ease-out forwards;
+        }
+
+        @keyframes particleFly {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) rotate(360deg) translate(100px, -100px);
+                opacity: 0;
+            }
+        }
+
+        /* Wave Effect */
+        .wave-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 97;
+            opacity: 0;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200vw;
+            height: 200vw;
+            top: -180vw;
+            left: -50vw;
+            border-radius: 43%;
+            background: linear-gradient(45deg, rgba(9, 132, 227, 0.1), rgba(0, 206, 201, 0.1));
+            animation: wave 8s linear infinite;
+            transform-origin: 49% 48%;
+        }
+
+        .wave-container.active {
+            opacity: 1;
+            animation: fadeWave 2s ease-in-out forwards;
+        }
+
+        @keyframes wave {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeWave {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="ripple-container"></div>
+    <div class="wave-container">
+        <div class="wave"></div>
+        <div class="wave" style="animation-delay: -2s; opacity: 0.5"></div>
+        <div class="wave" style="animation-delay: -4s; opacity: 0.3"></div>
+    </div>
     <nav class="navbar">
         <div class="logo">EV</div>
         <ul class="nav-list">
@@ -35,12 +295,12 @@
             <div class="profile-container">
                 <img src="https://picsum.photos/150" alt="Eldar Valentini" class="profile-img">
                 <div class="social-links">
-                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/yourusername" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <h1>Eldar Valentini</h1>
+            <h1 class="typing-text">Eldar Valentini</h1>
             <h2>Full Stack Web Developer</h2>
             <p class="typing-text">I create elegant solutions to complex problems</p>
             <div class="cta-buttons">
@@ -76,7 +336,7 @@
         </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="skills-section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Skills</h2>
             <div class="skills-grid">
@@ -212,9 +472,9 @@
     <footer>
         <div class="footer-content">
             <div class="footer-social">
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/yourusername" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
             </div>
             <p>&copy; 2025 Eldar Valentini. All rights reserved.</p>
         </div>
@@ -225,6 +485,70 @@
         AOS.init({
             duration: 800,
             once: true
+        });
+    </script>
+    <script>
+        // Cool animation effects
+        const themeToggle = document.querySelector('.theme-toggle');
+        const rippleContainer = document.querySelector('.ripple-container');
+        const waveContainer = document.querySelector('.wave-container');
+
+        function createRipple(e) {
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple');
+            
+            // Position ripple from click position
+            const rect = themeToggle.getBoundingClientRect();
+            ripple.style.top = rect.top + 'px';
+            ripple.style.left = rect.left + 'px';
+            ripple.style.width = rect.width * 2 + 'px';
+            ripple.style.height = rect.width * 2 + 'px';
+            
+            rippleContainer.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => ripple.remove(), 1500);
+        }
+
+        function createParticle(e) {
+            const colors = ['#0984e3', '#00cec9', '#00b894', '#6c5ce7'];
+            const rect = themeToggle.getBoundingClientRect();
+            
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position around the moon icon
+                const angle = (i / 12) * 360;
+                particle.style.top = rect.top + rect.height/2 + 'px';
+                particle.style.left = rect.left + rect.width/2 + 'px';
+                
+                // Random size and color
+                const size = Math.random() * 8 + 4;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random animation duration and delay
+                particle.style.animationDuration = (Math.random() * 0.5 + 0.5) + 's';
+                particle.style.transform = `rotate(${angle}deg)`;
+                
+                document.body.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+
+        function activateWaves() {
+            waveContainer.classList.add('active');
+            setTimeout(() => waveContainer.classList.remove('active'), 2000);
+        }
+
+        themeToggle.addEventListener('click', (e) => {
+            createRipple(e);
+            createParticle(e);
+            activateWaves();
         });
     </script>
 </body>
